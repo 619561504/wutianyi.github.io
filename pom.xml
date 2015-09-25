@@ -110,6 +110,11 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+		<!-- 字符编码自动识别 -->
+		<dependency>
+			<groupId>net.sourceforge.jchardet</groupId>
+			<artifactId>jchardet</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 </project>

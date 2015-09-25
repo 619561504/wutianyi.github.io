@@ -12,7 +12,8 @@ import com.google.api.client.http.GenericUrl;
 public class UrlMain {
 
 	public static void main(String[] args) {
-		GenericUrl genericUrl = new GenericUrl("http://(null)/login.htm");
+		GenericUrl genericUrl = new GenericUrl("ftp://(null)/tt/login.htm");
+		System.out.println(genericUrl.getScheme());
 		System.out.println(genericUrl.getHost());
 		System.out.println(genericUrl.getPort());
 		System.out.println(genericUrl.getFragment());
