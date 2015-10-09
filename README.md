@@ -14,4 +14,6 @@
 
 > 包含常用：url正则, html转义字符替换
 
+### java spi(service provide interface)
+> com.wutianyi.spi：classpath下创建META-INF/services文件夹，创建接口service，和相应的实现，在services文件夹下创建接口名称的文件（完整路径），文件的内容为相应的接口实现类
 
