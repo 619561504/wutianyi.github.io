@@ -9,5 +9,5 @@ package com.wutianyi.spi;
  */
 public interface HelloInterface {
 
-	public void sayHello();
+	void sayHello();
 }
