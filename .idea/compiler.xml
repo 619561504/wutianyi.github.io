@@ -25,8 +25,8 @@
         <module name="wutianyi.github.io" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="wutianyi.github.io" target="1.5" />
+    <bytecodeTargetLevel target="1.6">
+      <module name="wutianyi.github.io" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
