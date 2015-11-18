@@ -1,0 +1,3 @@
+Registering annotator segment with class edu.stanford.nlp.pipeline.ChineseSegmenterAnnotator
+Adding annotator segment
+Loading classifier from edu/stanford/nlp/models/segmenter/chinese/ctb.gz ... 
