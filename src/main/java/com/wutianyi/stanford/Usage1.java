@@ -32,34 +32,38 @@ import edu.stanford.nlp.util.CoreMap;
  */
 public class Usage1 {
 
-    public static void main(String[] args) throws IOException {
-        Properties props = new Properties();
-        props.load(Usage1.class.getClassLoader().getResourceAsStream("StanfordCoreNLP-chinese.properties"));
-        props.setProperty("annotators", "segment,ssplit,pos, ner");
-        props.setProperty("segment.verbose", "false");
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+	public static void main(String[] args) throws IOException {
+		Properties props = new Properties();
+		props.load(Usage1.class.getClassLoader().getResourceAsStream("StanfordCoreNLP-chinese.properties"));
+		props.setProperty("annotators", "segment,ssplit,pos,ner");
+		props.setProperty("segment.verbose", "false");
+		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
-        String text = "刘柳先生，您个人信用卡临时额度后天失效， 2015年11月25日15点前回#YLEY可重新申请临额至 {5} 元，短信回复为准。实时查询额度，巧用额度理财，猛戳  。[招商银行]";
-        Annotation document = new Annotation(text);
-        long start = System.currentTimeMillis();
-        pipeline.annotate(document);
-        System.out.println("Finish: " + (System.currentTimeMillis() - start));
-        start = System.currentTimeMillis();
-        List<CoreLabel> coreLabel = document.get(TokensAnnotation.class);
-        for (CoreLabel token : coreLabel) {
-            String word = token.get(TextAnnotation.class);
-            // String pos = token.get(PartOfSpeechAnnotation.class);
-            // String ne = token.getString(NamedEntityTagAnnotation.class);
-            // System.out.println(word + "\t" + pos + "\t" + ne);j
-            System.out.println(word);
-        }
-        System.out.println("null");
-        System.out.println("Use Time: " + (System.currentTimeMillis() - start));
-        // Tree tree = sentence.get(TreeAnnotation.class);
-        // SemanticGraph dependencies =
-        // sentence.get(CollapsedCCProcessedDependenciesAnnotation.class);
+		String[] texts = new String[] {
+				"刘柳先生，您个人信用卡临时额度后天失效， 2015年11月25日15点前回#YLEY可重新申请临额至 {5} 元，短信回复为准。实时查询额度，巧用额度理财，猛戳  。[招商银行]",
+				"倪文杰先生您个人信用卡最高可申请临时额度至17000元，为方便用卡2015年08月16日9点前回#TLEY即可，以短信回复为准。实时查询额度，巧用额度理财，猛戳 t.cn/Rw7gdZs 。[招商银行]" };
+		long start = System.currentTimeMillis();
+		for (String text : texts) {
+			Annotation document = new Annotation(text);
 
-        // Map<Integer, CorefChain> graph =
-        // document.get(CorefChainAnnotation.class);
-    }
+			pipeline.annotate(document);
+			System.out.println("Finish: " + (System.currentTimeMillis() - start));
+			start = System.currentTimeMillis();
+			List<CoreLabel> coreLabel = document.get(TokensAnnotation.class);
+			for (CoreLabel token : coreLabel) {
+				String word = token.get(TextAnnotation.class);
+				String pos = token.get(PartOfSpeechAnnotation.class);
+				String ne = token.getString(NamedEntityTagAnnotation.class);
+				System.out.println(word + "\t" + pos + "\t" + ne);
+			}
+		}
+		System.out.println("null");
+		System.out.println("Use Time: " + (System.currentTimeMillis() - start));
+		// Tree tree = sentence.get(TreeAnnotation.class);
+		// SemanticGraph dependencies =
+		// sentence.get(CollapsedCCProcessedDependenciesAnnotation.class);
+
+		// Map<Integer, CorefChain> graph =
+		// document.get(CorefChainAnnotation.class);
+	}
 }
