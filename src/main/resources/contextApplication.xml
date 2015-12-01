@@ -5,12 +5,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-	<context:annotation-config></context:annotation-config>
-	<context:component-scan base-package="com.qq.batch"></context:component-scan>
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.wutianyi.batch" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<property name="url" value="jdbc:mysql://localhost:spring_batch_example"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/spring_batch_example"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="860728"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
@@ -47,11 +48,13 @@
 					</bean>
 				</property>
 				<property name="fieldSetMapper">
-					<bean class="com.qq.batch.ProductFieldSetMapper"></bean>
+					<bean class="com.wutianyi.batch.ProductFieldSetMapper"></bean>
 				</property>
 			</bean>
 		</property>
 	</bean>
 
-	<bean id="productWriter" class="com.qq.batch.ProductItemWriter"></bean>
+	<bean id="productWriter" class="com.wutianyi.batch.ProductItemWriter"></bean>
+	
+	<bean id="productProcessor" class="com.wutianyi.batch.ProductItemProcessor"></bean>
 </beans>
