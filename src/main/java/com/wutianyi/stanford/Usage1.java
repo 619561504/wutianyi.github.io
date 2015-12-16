@@ -3,12 +3,16 @@
  */
 package com.wutianyi.stanford;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
+import org.apache.commons.lang.StringUtils;
 
 import edu.stanford.nlp.dcoref.CorefChain;
 import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
@@ -41,14 +45,14 @@ public class Usage1 {
 
 		String[] texts = new String[] {
 				"刘柳先生，您个人信用卡临时额度后天失效， 2015年11月25日15点前回#YLEY可重新申请临额至 {5} 元，短信回复为准。实时查询额度，巧用额度理财，猛戳  。[招商银行]",
-				"倪文杰先生您个人信用卡最高可申请临时额度至17000元，为方便用卡2015年08月16日9点前回#TLEY即可，以短信回复为准。实时查询额度，巧用额度理财，猛戳 t.cn/Rw7gdZs 。[招商银行]" };
-		long start = System.currentTimeMillis();
-		for (String text : texts) {
-			Annotation document = new Annotation(text);
+				"倪先生您个人信用卡最高可申请临时额度至17000元，为方便用卡2015年08月16日9点前回#TLEY即可，以短信回复为准。实时查询额度，巧用额度理财，猛戳 t.cn/Rw7gdZs 。[招商银行]" };
 
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String line = br.readLine();
+		while (!StringUtils.equals(line, "bye")) {
+			long start = System.currentTimeMillis();
+			Annotation document = new Annotation(line);
 			pipeline.annotate(document);
-			System.out.println("Finish: " + (System.currentTimeMillis() - start));
-			start = System.currentTimeMillis();
 			List<CoreLabel> coreLabel = document.get(TokensAnnotation.class);
 			for (CoreLabel token : coreLabel) {
 				String word = token.get(TextAnnotation.class);
@@ -56,9 +60,10 @@ public class Usage1 {
 				String ne = token.getString(NamedEntityTagAnnotation.class);
 				System.out.println(word + "\t" + pos + "\t" + ne);
 			}
+			System.out.println("Use Time: " + (System.currentTimeMillis() - start));
+			line = br.readLine();
 		}
-		System.out.println("null");
-		System.out.println("Use Time: " + (System.currentTimeMillis() - start));
+
 		// Tree tree = sentence.get(TreeAnnotation.class);
 		// SemanticGraph dependencies =
 		// sentence.get(CollapsedCCProcessedDependenciesAnnotation.class);

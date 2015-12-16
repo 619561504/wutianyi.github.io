@@ -5,7 +5,7 @@
 		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
 
 	<import resource="classpath:/contextApplication.xml" />
-	<batch:job id="SimpleFileImportJob">
+	<batch:job id="SimpleFileImportJob" xmlns="http://www.springframework.org/schema/batch">
 		<batch:step id="importFileStep">
 			<batch:tasklet>
 				<batch:chunk reader="productReader" writer="productWriter"

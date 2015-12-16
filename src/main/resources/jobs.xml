@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+	<batch:job id="footballJob" restartable="false"
+		job-repository="specialRepository">
+		<batch:step id="playerload" parent="s1" next="gameLoad"></batch:step>
+		<batch:step id="gameLoad" parent="s2" next="playerSummarization"></batch:step>
+		<batch:step id="playerSummarization" parent="s3"></batch:step>
+		<batch:listeners>
+			<batch:listener ref="sampleListener">
+			</batch:listener>
+		</batch:listeners>
+	</batch:job>
+	<bean id="sampleListener" class="com.wutianyi.batch.MyJobExecutionListener">
+
+	</bean>
+</beans>
