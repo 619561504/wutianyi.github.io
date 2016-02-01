@@ -207,6 +207,17 @@
             <artifactId>commons-math3</artifactId>
             <version>3.5</version>
         </dependency>
+        <!-- java data mining package -->
+        <dependency>
+            <groupId>org.jdmp</groupId>
+            <artifactId>jdmp-core</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jdmp</groupId>
+            <artifactId>jdmp-gui</artifactId>
+            <version>0.3.0</version>
+        </dependency>
 	</dependencies>
 	<build>
 		<plugins>
