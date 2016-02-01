@@ -61,6 +61,7 @@ public class Usage1 {
 				System.out.println(word + "\t" + pos + "\t" + ne);
 			}
 			System.out.println("Use Time: " + (System.currentTimeMillis() - start));
+			System.out.println("请输入短信样本:");
 			line = br.readLine();
 		}
 

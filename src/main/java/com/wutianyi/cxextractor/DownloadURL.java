@@ -160,7 +160,6 @@ public class DownloadURL {
                 e.printStackTrace();
             }
         }
-
         return result;
     }
 

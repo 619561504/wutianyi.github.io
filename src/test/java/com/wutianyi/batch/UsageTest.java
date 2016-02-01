@@ -21,4 +21,5 @@ public class UsageTest {
 	@Test
 	public void testRestartability() {
 	}
+
 }
