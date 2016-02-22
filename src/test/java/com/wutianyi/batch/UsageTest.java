@@ -5,10 +5,6 @@
 package com.wutianyi.batch;
 
 import org.junit.Test;
-import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobExecution;
-import org.springframework.batch.core.JobParameters;
-import org.springframework.batch.core.job.SimpleJob;
 import org.springframework.batch.core.repository.JobRepository;
 
 /**
@@ -20,6 +16,8 @@ public class UsageTest {
 
 	@Test
 	public void testRestartability() {
+		
+		System.out.println("hello world");
 	}
 
 }

@@ -4,13 +4,12 @@
  */
 package com.wutianyi.gson;
 
-import java.lang.reflect.Type;
-import java.util.Collection;
-
-import org.apache.commons.lang.StringUtils;
-
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import org.apache.commons.lang.StringUtils;
+
+import java.lang.reflect.Type;
+import java.util.Collection;
 
 /**
  * @author hanjiewu

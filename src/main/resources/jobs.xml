@@ -17,4 +17,17 @@
 	<bean id="sampleListener" class="com.wutianyi.batch.MyJobExecutionListener">
 
 	</bean>
+
+	<batch:job id="baseJob" abstract="true">
+		<batch:listeners>
+			<batch:listener ref="sampleListener"></batch:listener>
+		</batch:listeners>
+	</batch:job>
+
+	<bean id="parametersValidator"
+		class="org.springframework.batch.core.job.DefaultJobParametersValidator"></bean>
+
+	<batch:job id="job1" parent="baseJob">
+		<batch:validator ref="parametersValidator"></batch:validator>
+	</batch:job>
 </beans>
