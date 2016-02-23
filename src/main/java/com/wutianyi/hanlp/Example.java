@@ -3,16 +3,16 @@
  */
 package com.wutianyi.hanlp;
 
-import java.util.List;
-
 import com.hankcs.hanlp.HanLP;
-import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.Dijkstra.DijkstraSegment;
 import com.hankcs.hanlp.seg.NShort.NShortSegment;
+import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.IndexTokenizer;
 import com.hankcs.hanlp.tokenizer.NLPTokenizer;
 import com.hankcs.hanlp.tokenizer.StandardTokenizer;
+
+import java.util.List;
 
 /**
  * @author hanjiewu

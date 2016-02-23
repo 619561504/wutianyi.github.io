@@ -3,15 +3,14 @@
  */
 package com.wutianyi.diffmain;
 
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.lang3.CharUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.collect.Maps;
 import com.wutianyi.diffmain.diff_match_patch.Diff;
 import com.wutianyi.diffmain.diff_match_patch.Operation;
+import org.apache.commons.lang3.CharUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author hanjiewu

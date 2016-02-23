@@ -3,10 +3,10 @@
  */
 package com.wutianyi.templates;
 
+import com.google.api.client.util.Maps;
+
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-
-import com.google.api.client.util.Maps;
 
 /**
  * @author hanjiewu

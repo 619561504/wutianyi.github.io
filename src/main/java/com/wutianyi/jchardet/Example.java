@@ -3,14 +3,13 @@
  */
 package com.wutianyi.jchardet;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.mozilla.intl.chardet.nsDetector;
 import org.mozilla.intl.chardet.nsICharsetDetectionObserver;
 import org.mozilla.intl.chardet.nsPSMDetector;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * @author hanjiewu

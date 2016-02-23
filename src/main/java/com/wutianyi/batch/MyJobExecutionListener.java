@@ -19,7 +19,6 @@ public class MyJobExecutionListener implements JobExecutionListener {
 	 */
 	@Override
 	public void beforeJob(JobExecution jobExecution) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -29,7 +28,6 @@ public class MyJobExecutionListener implements JobExecutionListener {
 	@Override
 	public void afterJob(JobExecution jobExecution) {
 		if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
-
 		} else if (jobExecution.getStatus() == BatchStatus.FAILED) {
 
 		}
