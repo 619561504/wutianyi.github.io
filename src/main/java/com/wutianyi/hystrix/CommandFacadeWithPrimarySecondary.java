@@ -46,7 +46,9 @@ public class CommandFacadeWithPrimarySecondary extends HystrixCommand<String> {
                     .andCommandKey(HystrixCommandKey.Factory.asKey("PrimaryCommand"))
                     .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("PrimayCommand"))
                     .andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(600)));
-            this.id = id;
+
+			HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(1000);
+			this.id = id;
         }
 
         @Override

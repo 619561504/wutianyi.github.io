@@ -1,8 +1,6 @@
 package com.wutianyi.hystrix;
 
-import com.netflix.hystrix.HystrixCommand;
-import com.netflix.hystrix.HystrixEventType;
-import com.netflix.hystrix.HystrixRequestLog;
+import com.netflix.hystrix.*;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.junit.Test;
 
@@ -20,6 +18,7 @@ public class CommandCollapserGetValueForKeyTest {
 	public void testCollapser() throws ExecutionException, InterruptedException {
 		HystrixRequestContext context = HystrixRequestContext.initializeContext();
 		try {
+
 			Future<String> f1 = new CommandCollapserGetValueForKey(1).queue();
 			Future<String> f2 = new CommandCollapserGetValueForKey(2).queue();
 			Future<String> f3 = new CommandCollapserGetValueForKey(3).queue();
@@ -36,6 +35,8 @@ public class CommandCollapserGetValueForKeyTest {
 			System.out.println(command.getCommandKey().name());
 			assertTrue(command.getExecutionEvents().contains(HystrixEventType.COLLAPSED));
 			assertTrue(command.getExecutionEvents().contains(HystrixEventType.SUCCESS));
+
+
 		} finally {
 			context.shutdown();
 		}
