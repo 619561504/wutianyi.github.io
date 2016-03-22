@@ -9,7 +9,10 @@ import com.google.gson.Gson;
 import org.apache.commons.lang.StringUtils;
 
 import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * @author hanjiewu
@@ -34,5 +37,10 @@ public class Usage {
 		}.getType();
 		Collection<Integer> ints2 = gson.fromJson("[1,2,3,4]", collectionType);
 		System.out.println(ints2);
+		Date date = new Date();
+		date.setTime(1458654708l * 1000);
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(dateFormat.format(date));
 	}
 }
