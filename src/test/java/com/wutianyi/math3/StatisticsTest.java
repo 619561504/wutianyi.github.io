@@ -1,5 +1,7 @@
 package com.wutianyi.math3;
 
+import com.google.common.base.Joiner;
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.math3.stat.Frequency;
 import org.apache.commons.math3.stat.StatUtils;
 import org.apache.commons.math3.stat.correlation.Covariance;
@@ -12,7 +14,7 @@ import org.junit.Test;
 
 /**
  * Created by hanjiewu on 2016/2/1.
- *
+ * <p/>
  * 极差：即最大值－最小值（也就是极差）来评价一组数据的离散度
  * 离均差平方和：数据与均值之差（我们叫它离均差）加起来就能反映出一个准确的离散程度
  * 方差：离均差的平方和求平均值
@@ -24,13 +26,15 @@ public class StatisticsTest {
 	public void statisticsTest() {
 		DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
 
-		int[] inputArray = new int[]{5, 7, 9, 9, 10, 11, 13, 14};
+		int[] inputArray = new int[]{11, 13, 14, 5, 7, 9, 9, 10};
 		for (int input : inputArray) {
 			descriptiveStatistics.addValue(input);
 		}
 		System.out.printf("mean: %f\nstd: %f\nvariance: %f\nmedian: %f\n", descriptiveStatistics.getMean(),
 				descriptiveStatistics.getStandardDeviation(), descriptiveStatistics.getPopulationVariance(),
 				descriptiveStatistics.getPercentile(50));
+		System.out.println(ArrayUtils.toString(descriptiveStatistics.getSortedValues()));
+		System.out.println(descriptiveStatistics.getN());
 	}
 
 	@Test
@@ -60,10 +64,11 @@ public class StatisticsTest {
 		System.out.println(regression.getSlopeStdErr());
 		System.out.println(regression.predict(1.5d));
 	}
+
 	@Test
 	public void rankTransformations() {
 		NaturalRanking ranking = new NaturalRanking(NaNStrategy.MINIMAL, TiesStrategy.SEQUENTIAL);
-		double[] data = { 20, 17, 30, 42.3, 17, 50, Double.NaN, Double.NEGATIVE_INFINITY, 17 };
+		double[] data = {20, 17, 30, 42.3, 17, 50, Double.NaN, Double.NEGATIVE_INFINITY, 17};
 		double[] ranks = ranking.rank(data);
 		for (double rank : ranks) {
 			System.out.println(rank);
@@ -72,15 +77,16 @@ public class StatisticsTest {
 
 	/**
 	 * 协方差，用于衡量两个变量的总体误差，表示两个变量总体误差的期望 大于0表示正相关，小于0表示负相关，0表示不相关
-	 *
+	 * <p/>
 	 * 方差则是表示一个变量的误差
 	 */
 	@Test
 	public void covarianceAndCorrelation() {
 		Covariance covariance = new Covariance();
-		double dd = covariance.covariance(new double[] { 1, 2, 3 }, new double[] { 1, 2, 3 });
+		double dd = covariance.covariance(new double[]{1, 2, 3}, new double[]{1, 2, 3});
 		System.out.println(dd);
 	}
+
 	@Test
 	public void statUtilsTest() {
 

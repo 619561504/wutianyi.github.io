@@ -11,7 +11,7 @@ import org.junit.Test;
 public class HashingExplained {
 	@Test
 	public void hashFunctionTest() {
-		HashFunction hf = Hashing.murmur3_32();
+		HashFunction hf = Hashing.md5();
 		HashCode hc = hf.newHasher().putLong(1).putString("hanjiewu", Charsets.UTF_8).hash();
 
 		System.out.println(hc.toString());
