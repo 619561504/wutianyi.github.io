@@ -26,13 +26,14 @@ public class StatisticsTest {
 	public void statisticsTest() {
 		DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
 
-		int[] inputArray = new int[]{11, 13, 14, 5, 7, 9, 9, 10};
+		int[] inputArray = new int[]{208550, 2721};
 		for (int input : inputArray) {
 			descriptiveStatistics.addValue(input);
 		}
 		System.out.printf("mean: %f\nstd: %f\nvariance: %f\nmedian: %f\n", descriptiveStatistics.getMean(),
 				descriptiveStatistics.getStandardDeviation(), descriptiveStatistics.getPopulationVariance(),
 				descriptiveStatistics.getPercentile(50));
+
 		System.out.println(ArrayUtils.toString(descriptiveStatistics.getSortedValues()));
 		System.out.println(descriptiveStatistics.getN());
 	}

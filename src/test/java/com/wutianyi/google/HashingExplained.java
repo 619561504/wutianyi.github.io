@@ -5,6 +5,10 @@ import com.google.common.hash.*;
 import com.google.common.net.InternetDomainName;
 import org.junit.Test;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by hanjiewu on 2016/1/28.
  */
@@ -20,7 +24,9 @@ public class HashingExplained {
 		//hc = hf.newHasher().putLong(1).putString("hanjiewu", Charsets.UTF_8).hash();
 		System.out.println(hc.toString());
 		System.out.println(hc.asLong());
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 
+		System.out.println(hf.newHasher().putString(dateFormat.format(new Date()), Charsets.UTF_8).hash().toString());
 	}
 
 	@Test
