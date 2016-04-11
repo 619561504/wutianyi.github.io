@@ -20,6 +20,10 @@ import java.net.URISyntaxException;
  * Created by hanjiewu on 2016/4/7.
  */
 public class Example {
+	@Test
+	public void example10() {
+		System.out.println(Integer.toString(100000000));
+	}
 
 	@Test
 	public void example() {
