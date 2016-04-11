@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>数据绑定语法</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="ex1">
+    <span>Message: {{ msg }}</span>
+    <span>{{ number + 1 }}</span>
+    <span>{{msg.split('').reverse().join('') }}</span>
+    <a :href.literval="url"></a>
+</div>
+
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#ex1',
+        data: {
+            msg: 'Hello world',
+            number: 2
+        }
+    });
+</script>
+</body>
+</html>

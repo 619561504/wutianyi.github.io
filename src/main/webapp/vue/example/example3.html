@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue实例</title>
+</head>
+<body>
+
+<div id="example">
+    {{ a }}
+</div>
+<script src="../js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var vm = new Vue({});
+    var MyComponent = Vue.extend({});
+    var myComponnetInstance = new MyComponent();
+
+    var data = {a: 1};
+    var vm = new Vue({
+        el: '#example',
+        data: data
+    });
+    console.log(vm.$data == data);
+    console.log(vm.$el == document.getElementById('example'));
+    var vm = new Vue({
+        data: {
+            a: 1
+        },
+        created: function () {
+            console.log('a is ' + this.a);
+        }
+    });
+</script>
+</body>
+</html>

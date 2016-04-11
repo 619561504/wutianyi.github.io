@@ -3,21 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>起步</title>
-    <script src="../js/vue.js"/>
+    <script src="../js/vue.js" type="text/javascript"></script>
 </head>
 
 <body>
 <div id="app">
-    {{message}}
+    {{ message }}
+</div>
+<div id="app1">
+    <p>{{ message }}</p>
+    <input v-model="message"/>
 </div>
 
+<div id="app2">
+    <ul>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ul>
+</div>
+
+<div id="app3">
+    <p> {{message}}</p>
+    <button @click="reverseMessage">Reverse Message</button>
+</div>
+
+<div id="app4">
+    <input v-model="newTodo" @keyup.enter="addTodo"/>
+    <ul>
+        <li v-for="todo in todos">
+            <span>{{todo.text}}</span>
+            <button @click="removeTodo($index)">X</button>
+        </li>
+    </ul>
+</div>
 <script type="text/javascript">
     new Vue({
-        el: "#pp",
+        el: "#app",
         data: {
             message: "Hello Vue.js"
         }
     });
+    new Vue({
+        el: '#app1',
+        data: {
+            message: "Hello Vue.js"
+        }
+    });
+    new Vue({
+        el: '#app2',
+        data: {
+            todos: [
+                {text: 'Learn JavaScript'},
+                {text: 'Learn Vue.js'},
+                {text: 'Build Something Awesom'}
+            ]
+        }
+    });
+    new Vue({
+        el: '#app3',
+        data: {
+            message: 'Hello Vue.js'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    });
+    new Vue({
+        el: '#app4',
+        data: {
+            newTodo: '',
+            todos: [
+                {text: 'Add Some todos'}
+            ]
+        },
+        methods: {
+            addTodo: function () {
+                var text = this.newTodo.trim();
+                if (text) {
+                    this.todos.push({text: text});
+                    this.newTodo = '';
+                }
+            },
+            removeTodo: function (index) {
+                this.todos.splice(index, 1);
+            }
+        }
+    })
 </script>
 </body>
 </html>
