@@ -20,13 +20,20 @@ import org.junit.Test;
  * 方差：离均差的平方和求平均值
  * 标准差：由于方差是数据的平方，与检测值本身相差太大，人们难以直观的衡量，所以常用方差开根号换算回来这就是我们要说的标准差。
  * 标准误：表示的是抽样的误差。因为从一个总体中可以抽取出无数多种样本，每一个样本的数据都是对总体的数据的估计。
+ * 协方差：协方差表示的是两个变量总体误差的期望，如果两个变量的变化趋势一致，那么两个变量之间的协方差就是正值，如果两个变量
+ * 的变化趋势相反，那么他们之间的协方差就是负值，如果X与Y是统计独立的，那么两者之间的协方差就是0
+ * 数学期望：数学期望（mean）是试验中每次可能结果的概率乘以其结果的总和，是最基本的数学特征之一，它反映随机变量平均取值的大小
+ * 分为离散型和连续型
+ * <p/>
+ * 概率密度函数：表示瞬时幅值落在某指定范围内的概率，因此是幅值的函数。它随所取范围的幅值而变化。
+ * 累积分布函数：随机变量小于或者等于某个数值的概率P，能完整描述一个实数随机变量X的概率分布，是概率密度函数的积分
  */
 public class StatisticsTest {
 	@Test
 	public void statisticsTest() {
 		DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
 
-		int[] inputArray = new int[]{208550, 2721};
+		int[] inputArray = new int[]{1, 2, 23};
 		for (int input : inputArray) {
 			descriptiveStatistics.addValue(input);
 		}

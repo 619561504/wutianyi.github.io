@@ -45,7 +45,7 @@ public class Usage1 {
 				String word = token.get(TextAnnotation.class);
 				String pos = token.get(PartOfSpeechAnnotation.class);
 				String ne = token.getString(NamedEntityTagAnnotation.class);
-				System.out.println(word + "\t" + pos + "\t" + ne);
+				System.out.println(word + "\t" + pos + "\t" + StringUtils.equals(ne, "O"));
 			}
 			System.out.println("Use Time: " + (System.currentTimeMillis() - start));
 			System.out.println("请输入短信样本:");

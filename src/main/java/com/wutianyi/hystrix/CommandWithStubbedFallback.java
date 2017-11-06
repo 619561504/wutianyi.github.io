@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by hanjiewu on 2016/2/3.
  * <p/>
- * 记录下上一次请求的状态，当初心异常的时候，从出错的地方继续进行
+ * 记录下上一次请求的状态，当出现异常的时候，从出错的地方继续进行
  */
 public class CommandWithStubbedFallback extends HystrixObservableCommand<Integer> {
 
