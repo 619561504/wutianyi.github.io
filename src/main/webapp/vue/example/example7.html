@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <h1 v-if="ok">Yes</h1>
+    <h1 v-else>No</h1>
+    <template v-if="ok">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+    <h1 v-show="ok">Vshow</h1>
+    <div v-if="Math.random() > 0.5">
+        Sorry
+    </div>
+    <div v-else>Not Sorry</div>
+</div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            ok: true
+        }
+    })
+</script>
+</body>
+</html>

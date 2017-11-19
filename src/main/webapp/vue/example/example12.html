@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <my-component></my-component>
+    <ex1 msg="hello"></ex1>
+</div>
+
+<script type="text/javascript">
+    Vue.component('ex1', {
+        props: ['msg'],
+        template: '<span> {{ msg }} </span>'
+    });
+
+    var MyComponent = Vue.extend({
+        template: '<div>A custom component!</div>'
+    });
+    Vue.component('my-component', MyComponent);
+
+    new Vue({
+        el: '#example'
+    });
+
+    var child = Vue.extend({});
+    var parent = Vue.extend({
+        template: '..',
+        components: {
+            'my-component': child
+        }
+    });
+
+    Vue.component('my-component', {
+        template: '<div></div>'
+    });
+    parent = Vue.extend({
+        components: {
+            'my-component': {
+                template: ''
+            }
+        }
+    });
+</script>
+</body>
+</html>

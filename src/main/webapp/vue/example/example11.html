@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS过渡</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style type="text/css">
+        /* 必需 */
+        .expand-transition {
+            transition: all .3s ease;
+            height: 30px;
+            padding: 10px;
+            background-color: #eee;
+            overflow: hidden;
+        }
+
+        /* .expand-enter 定义进入的开始状态 */
+        /* .expand-leave 定义离开的结束状态 */
+        .expand-enter, .expand-leave {
+            height: 0;
+            padding: 0 10px;
+            opacity: 0;
+        }
+
+        ul {
+            padding-left: 0;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .staggered-transition {
+            transition: all .5s ease;
+            overflow: hidden;
+            margin: 0;
+            height: 20px;
+        }
+
+        .staggered-enter, .staggered-leave {
+            opacity: 0;
+            height: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="example">
+    <span v-if="show" transition="expand">hello</span>
+</div>
+<div id="demo">
+    <input v-model="query"/>
+    <ul>
+        <li v-for="item in list | filterBy query" transition="staggered" stagger="100">
+            {{ item.msg}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            show: true
+        }
+    });
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            query: '',
+            list: [
+                {msg: 'Bruce Lee'},
+                {msg: 'Jackie Chan'},
+                {msg: 'Chuck Norris'},
+                {msg: 'Jet Li'},
+                {msg: 'Kung Fury'}
+            ]
+        }
+    });
+</script>
+</body>
+</html>

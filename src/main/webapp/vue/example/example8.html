@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<div id="example">
+    <ul>
+        <li v-for="item in items">
+            {{ item.message }}
+        </li>
+    </ul>
+    <ul>
+        <li v-for="item in items">
+            {{ parentMessage }} - {{ $index }} -- {{ item.message }}
+        </li>
+    </ul>
+    <ul>
+        <li v-for="obj in objs">
+            {{ $key }} : {{ obj }}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            parentMessage: 'parent',
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ],
+            objs: {
+                FirstName: 'John',
+                LastName: 'Doe',
+                Age: 30
+            }
+        }
+    });
+</script>
+</body>
+</html>

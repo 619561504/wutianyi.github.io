@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>方法与事件处理器</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<div id="example">
+    <button @click="greet">Greet</button>
+    <button @click="say('hello', $event)">say</button>
+    <a @click.stop="doThis"></a>
+    <form @click.prevent="onSubmit"/>
+    <a @click.stop.prevent="doThat"/>
+    <form @click.stop.prevent/>
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            name: 'Vue.js'
+        },
+        methods: {
+            greet: function (event) {
+                alert('Hello' + this.name + '!');
+                alert(event.target.tagName);
+            },
+            say: function (msg, event) {
+                event.preventDefault();
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# 统计每个号码有多少样本
+http://localhost:8983/solr/sms_core/select?indent=on&wt=json&q=sender:*&facet=true&facet.field=sender&start=0&rows=0
+
+sample:((账单 OR 帐单 OR 最低还款 OR 最后还款 OR 到期还款) AND (元 OR 金额 OR 总金额 OR 总价))
+fq:sample:(-移动 -联通 -电信 -套餐 -神州行)
+
+#  匹配指定的短语
+http://localhost:8983/solr/sms_core/select?defType=dismax&indent=on&q=+"微信公众号"&qf=sample^2.3&wt=json

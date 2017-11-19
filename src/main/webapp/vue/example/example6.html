@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Class 与 Style绑定</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="example" class="static" :class="{'class-a':isA, 'class-b':isB}">
+    example
+</div>
+<div id="example1" class="static" :class="classObject">
+    example1
+</div>
+<div id="example2" :class="[classA, classB]">
+    example2
+</div>
+
+<div id="example3" :style="{color:activeColor, fontSize: fontSize + 'px'}">
+    example3
+</div>
+
+<div id="example4" :style="styleObject"></div>
+
+<script type="text/javascript">
+    var data = {
+        isA: true,
+        isB: false
+    };
+    var vm = new Vue({
+        el: '#example',
+        data: data
+    });
+    var vm1 = new Vue({
+        el: '#example1',
+        data: {
+            classObject: {
+                'class-a': true,
+                'class-b': false
+            }
+        }
+    });
+    var vm2 = new Vue({
+        el: '#example2',
+        data: {
+            classA: 'class-a',
+            classB: 'class-b'
+        }
+    });
+    var vm3 = new Vue({
+        el: '#example3',
+        data: {
+            activeColor: 'red',
+            fontSize: 30
+        }
+    });
+</script>
+</body>
+</html>

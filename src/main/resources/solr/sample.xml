@@ -1,0 +1,8 @@
+<add>
+    <doc>
+        <field name="sender">+601136083634</field>
+        <field name="template">尊敬的Bet {1} 会员林朝晖您好！ {2} 元已存入您的会员账号，请及时登入领取！</field>
+        <field name="sms">尊敬的Bet365会员林朝晖您好！138元已存入您的会员账号，请及时登入460072.Com领取！</field>
+        <field name="count">1</field>
+    </doc>
+</add>
